@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default () => (
+export default props => (
     <div>
-        This is car component
-        <p><strong>{Math.round(Math.random()*100)}</strong></p>
+        <h1>Car Name: {props.name}</h1>
+        <p>Year: <strong>{props.year}</strong></p>
     </div>
-    );
+);

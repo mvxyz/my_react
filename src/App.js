@@ -11,9 +11,11 @@ function App() {
   return (
     <div style={divStyle}>
       <h1 style={{ color: 'blue', fontSize: '50px' }}>Здравствуй Мир!</h1>
-      <Car />
-      <Car />
-      <Car />
+      <Car name={'Ford'} year={2018}>
+        <p style={{color:'Red'}}>COLOR</p>
+      </Car>
+      <Car name={'Audi'} year={2017} />
+      <Car name={'Mazda'} year={2015} />
     </div>
   );
 }
