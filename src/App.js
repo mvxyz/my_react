@@ -4,62 +4,68 @@ import Car from './Car/Car'
 
 class App extends Component {
 
- state = {
- cars: [
- { name: 'Ford', year: 2018 },
- { name: 'Audi', year: 2017 },
- { name: 'Mazda 1', year: 2015 }
- ],
- pageTitle: 'React component',
- showCars: false
- }
+  state = {
+    cars: [
+      { name: 'Ford', year: 2018 },
+      { name: 'Audi', year: 2017 },
+      { name: 'Mazda 1', year: 2015 }
+    ],
+    pageTitle: 'React component',
+    showCars: false
+  }
 
- changeTitleHandler = (newTitle) => {
- this.setState({
- pageTitle: newTitle
- })
- }
+  changeTitleHandler = (newTitle) => {
+    this.setState({
+      pageTitle: newTitle
+    })
+  }
 
- toggleCarsHandler = () => {
- this.setState({
- showCars: !this.state.showCars
- })
- }
+  toggleCarsHandler = () => {
+    this.setState({
+      showCars: !this.state.showCars
+    })
+  }
+  onChangeName(name, index) {
+    const car = this.state.cars[index]
+    car.name = name
+    const cars = [...this.state.cars] // Создаем копию массива
+    cars[index] = car
+    this.setState({cars})
+  }
 
- render() {
+  render() {
 
- const divStyle = {
- textAlign: 'center'
- }
+    const divStyle = {
+      textAlign: 'center'
+    }
 
- let cars = null
+    let cars = null
 
- if (this.state.showCars) {
- cars = this.state.cars.map((car, index) => {
- return (
- <Car
- key={index}
- name={car.name}
- year={car.year}
- onChangeTitle={() => this.changeTitleHandler(car.name)}
- />
- )
- })
- }
+    if (this.state.showCars) {
+      cars = this.state.cars.map((car, index) => {
+        return (
+          <Car
+            key={index}
+            name={car.name}
+            year={car.year}
+            onChangeName={(event) => this.onChangeName(event.target.value, index)}
+          />
+        )
+      })
+    }
 
- return (
- <div style={divStyle}>
- <h1 style={{ color: 'blue', fontSize: '50px' }}>{this.state.pageTitle}</h1>
+    return (
+      <div style={divStyle}>
+        <h1 style={{ color: 'blue', fontSize: '50px' }}>{this.state.pageTitle}</h1>
+        <button onClick={this.toggleCarsHandler}>
+          Toggle cars
+        </button>
 
- <button onClick={this.toggleCarsHandler}>
- Toggle cars
- </button>
+        {cars}
 
- { cars }
-
- </div>
- );
- }
+      </div>
+    );
+  }
 }
 
 export default App;
