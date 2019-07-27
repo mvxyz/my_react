@@ -10,6 +10,6 @@ export default (props) => (
  <h1>Car Name: {props.name}</h1>
     <p>Year: <strong>{props.year}</strong></p>
     <input type='text' onChange={props.onChangeName} value={props.name}></input>
-    {/* <button onClick={props.onChangeTitle}>Chanch</button> */}
+    <button onClick={props.onDelete}>Delete</button>
  </div >
 );

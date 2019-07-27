@@ -30,7 +30,13 @@ class App extends Component {
     car.name = name
     const cars = [...this.state.cars] // Создаем копию массива
     cars[index] = car
-    this.setState({cars})
+    this.setState({ cars })
+  }
+
+  onDeleteHandler(index) {
+    const cars = this.state.cars.concat()
+    cars.splice(index, 1)
+    this.setState({ cars })
   }
 
   render() {
@@ -48,6 +54,7 @@ class App extends Component {
             key={index}
             name={car.name}
             year={car.year}
+            onDelete={this.onDeleteHandler.bind(this, index)}
             onChangeName={(event) => this.onChangeName(event.target.value, index)}
           />
         )
