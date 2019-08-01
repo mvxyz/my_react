@@ -4,14 +4,17 @@ import Car from './Car/Car'
 
 class App extends Component {
 
-  state = {
-    cars: [
-      { name: 'Ford', year: 2018 },
-      { name: 'Audi', year: 2017 },
-      { name: 'Mazda 1', year: 2015 }
-    ],
-    pageTitle: 'React component',
-    showCars: false
+  constructor(props) {
+    super(props)
+    this.state = {
+      cars: [
+        { name: 'Ford', year: 2018 },
+        { name: 'Audi', year: 2017 },
+        { name: 'Mazda 1', year: 2015 }
+      ],
+      pageTitle: 'React component',
+      showCars: false
+    }
   }
 
   changeTitleHandler = (newTitle) => {
