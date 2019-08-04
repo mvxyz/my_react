@@ -7,7 +7,6 @@ import Counter from './Counter/Counter'
 class App extends Component {
 
   constructor(props) {
-    console.log('App constructor')
     super(props)
     this.state = {
       cars: [
@@ -45,16 +44,7 @@ class App extends Component {
     this.setState({ cars })
   }
 
-  componentWillMount() {
-    console.log('App componentWillMount')
-  }
-
-  componentDidMount() {
-    console.log('App componentDidMount')
-  }
-
   render() {
-    console.log('App render')
     const divStyle = {
       textAlign: 'center'
     }
@@ -82,7 +72,7 @@ class App extends Component {
         <h1>{this.props.title}</h1>
         <Counter />
 
-        <hr/>
+        <hr />
 
         <button
           style={{ marginTop: 20 }}
